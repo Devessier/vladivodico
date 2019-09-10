@@ -1,5 +1,5 @@
 <template>
-    <div class="flex w-full bg-white">index</div>
+    <div class="flex w-full bg-red-800">definition</div>
 </template>
 
 <script></script>
@@ -11,19 +11,19 @@
     transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-.page-enter {
+.page-leave-to {
     z-index: 0;
 }
 
-.page-leave-to {
+.page-enter {
     z-index: 1;
 }
 
 .page-leave-to {
-    animation-name: leaveToRight;
+    animation-name: leaveToLeft;
 }
 
 .page-enter {
-    animation-name: enterFromLeft;
+    animation-name: enterFromRight;
 }
 </style>
