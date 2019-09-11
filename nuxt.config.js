@@ -9,7 +9,8 @@ module.exports = {
             { charset: 'utf-8' },
             {
                 name: 'viewport',
-                content: 'width=device-width, initial-scale=1'
+                content:
+                    'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'
             },
             {
                 hid: 'description',
@@ -23,6 +24,10 @@ module.exports = {
      ** Customize the progress-bar color
      */
     loading: { color: '#fff' },
+    pageTransition: {
+        name: 'page',
+        mode: ''
+    },
     /*
      ** Global CSS
      */

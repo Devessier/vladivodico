@@ -1,55 +1,92 @@
 <template>
-    <div>
-        <nuxt />
-    </div>
+    <section>
+        <nav>
+            <app-navigation />
+        </nav>
+
+        <main>
+            <nuxt />
+        </main>
+    </section>
 </template>
 
+<script>
+import AppNavigation from '~/components/AppNavigation.vue'
+
+export default {
+    components: {
+        AppNavigation
+    }
+}
+</script>
+
+<style scoped>
+section {
+    @apply flex flex-col min-h-screen relative;
+}
+
+main {
+    @apply relative flex-1 overflow-x-hidden;
+
+    display: grid;
+    grid-template: 'main';
+}
+
+main > article {
+    @apply flex w-full bg-orange-200;
+
+    grid-area: main;
+}
+
+main:first-child {
+    z-index: 1;
+}
+
+main:nth-child(2) {
+    z-index: 2;
+}
+</style>
+
 <style>
-html {
-    font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-        'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    font-size: 16px;
-    word-spacing: 1px;
-    -ms-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
-    box-sizing: border-box;
+body {
+    @apply h-full bg-orange-200;
 }
 
-*,
-*:before,
-*:after {
-    box-sizing: border-box;
-    margin: 0;
+@keyframes leaveToLeft {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-25%);
+        filter: brightness(0.5);
+    }
 }
 
-.button--green {
-    display: inline-block;
-    border-radius: 4px;
-    border: 1px solid #3b8070;
-    color: #3b8070;
-    text-decoration: none;
-    padding: 10px 30px;
+@keyframes enterFromLeft {
+    from {
+        transform: translateX(-25%);
+        filter: brightness(0.5);
+    }
+    to {
+        transform: translateX(0);
+    }
 }
 
-.button--green:hover {
-    color: #fff;
-    background-color: #3b8070;
+@keyframes leaveToRight {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(100%);
+    }
 }
 
-.button--grey {
-    display: inline-block;
-    border-radius: 4px;
-    border: 1px solid #35495e;
-    color: #35495e;
-    text-decoration: none;
-    padding: 10px 30px;
-    margin-left: 15px;
-}
-
-.button--grey:hover {
-    color: #fff;
-    background-color: #35495e;
+@keyframes enterFromRight {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
 }
 </style>

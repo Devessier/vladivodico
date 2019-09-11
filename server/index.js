@@ -23,4 +23,4 @@ async function start() {
 
 process.on('unhandledRejection', (error) => consola.error(error))
 
-start()
+start().catch(consola.error)

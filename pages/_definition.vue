@@ -1,8 +1,12 @@
 <template>
-    <article>index</article>
+    <article>definition</article>
 </template>
 
-<script></script>
+<script>
+export default {
+    name: 'Definition'
+}
+</script>
 
 <style scoped>
 .page-leave-active,
@@ -13,10 +17,10 @@
 }
 
 .page-enter-active {
-    animation-name: enterFromLeft;
+    animation-name: enterFromRight;
 }
 
 .page-leave-active {
-    animation-name: leaveToLeft;
+    animation-name: leaveToRight;
 }
 </style>
