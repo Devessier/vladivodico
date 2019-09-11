@@ -52,6 +52,11 @@ body {
     @apply h-full bg-orange-200;
 }
 
+a,
+a:visited {
+    color: black;
+}
+
 @keyframes leaveToLeft {
     from {
         transform: translateX(0);

@@ -33,7 +33,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .app-navigation__header {
     @apply flex flex-no-wrap border-black border-solid border-b px-1 py-1;
 
