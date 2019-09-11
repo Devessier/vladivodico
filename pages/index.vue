@@ -1,5 +1,5 @@
 <template>
-    <div class="flex w-full bg-white z-10">index</div>
+    <article>index</article>
 </template>
 
 <script></script>

@@ -32,8 +32,18 @@ main {
     grid-template: 'main';
 }
 
-main > * {
+main > article {
+    @apply flex w-full bg-orange-200;
+
     grid-area: main;
+}
+
+main:first-child {
+    z-index: 1;
+}
+
+main:nth-child(2) {
+    z-index: 2;
 }
 </style>
 

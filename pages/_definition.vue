@@ -1,5 +1,5 @@
 <template>
-    <div class="flex w-full bg-red-800 z-20">definition</div>
+    <article>definition</article>
 </template>
 
 <script>
