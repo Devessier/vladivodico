@@ -26,7 +26,7 @@ module.exports = {
     loading: { color: '#fff' },
     pageTransition: {
         name: 'page',
-        mode: 'in-out'
+        mode: ''
     },
     /*
      ** Global CSS

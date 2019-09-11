@@ -26,7 +26,14 @@ body {
 }
 
 main {
-    @apply flex flex-no-wrap max-w-full;
+    @apply relative flex-1 overflow-x-hidden;
+
+    display: grid;
+    grid-template: 'main';
+}
+
+main > * {
+    grid-area: main;
 }
 
 @keyframes leaveToLeft {

@@ -1,6 +1,8 @@
 <template>
     <header class="app-navigation__header">
-        <div class="navigation-icon">👷‍♂️</div>
+        <nuxt-link to="/">
+            <div class="navigation-icon">👷‍♂️</div>
+        </nuxt-link>
 
         <transition-group class="flex-grow">
             <div key="search">Recherche</div>

@@ -1,29 +1,22 @@
 <template>
-    <div class="flex w-full bg-white">index</div>
+    <div class="flex w-full bg-white z-10">index</div>
 </template>
 
 <script></script>
 
-<style>
-.page-leave-to,
-.page-enter {
+<style scoped>
+.page-leave-active,
+.page-enter-active {
     animation-duration: 0.5s;
+    animation-fill-mode: both;
     transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-.page-enter {
-    z-index: 0;
-}
-
-.page-leave-to {
-    z-index: 1;
-}
-
-.page-leave-to {
-    animation-name: leaveToRight;
-}
-
-.page-enter {
+.page-enter-active {
     animation-name: enterFromLeft;
+}
+
+.page-leave-active {
+    animation-name: leaveToLeft;
 }
 </style>

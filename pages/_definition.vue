@@ -1,29 +1,26 @@
 <template>
-    <div class="flex w-full bg-red-800">definition</div>
+    <div class="flex w-full bg-red-800 z-20">definition</div>
 </template>
 
-<script></script>
+<script>
+export default {
+    name: 'Definition'
+}
+</script>
 
-<style>
-.page-leave-to,
-.page-enter {
+<style scoped>
+.page-leave-active,
+.page-enter-active {
     animation-duration: 0.5s;
+    animation-fill-mode: both;
     transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-.page-leave-to {
-    z-index: 0;
-}
-
-.page-enter {
-    z-index: 1;
-}
-
-.page-leave-to {
-    animation-name: leaveToLeft;
-}
-
-.page-enter {
+.page-enter-active {
     animation-name: enterFromRight;
+}
+
+.page-leave-active {
+    animation-name: leaveToRight;
 }
 </style>
