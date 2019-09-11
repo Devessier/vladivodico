@@ -20,9 +20,9 @@ export default {
 }
 </script>
 
-<style>
-body {
-    @apply min-h-screen bg-orange-200;
+<style scoped>
+section {
+    @apply flex flex-col min-h-screen relative;
 }
 
 main {
@@ -34,6 +34,12 @@ main {
 
 main > * {
     grid-area: main;
+}
+</style>
+
+<style>
+body {
+    @apply h-full bg-orange-200;
 }
 
 @keyframes leaveToLeft {
