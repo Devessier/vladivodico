@@ -5,6 +5,7 @@
                 ref="searchIcon"
                 for="search-bar-input"
                 class="search-bar__icon"
+                title="Rechercher un mot"
                 :style="style"
             >
                 <search-icon />
@@ -74,7 +75,7 @@ export default {
 }
 
 .search-bar__icon {
-    @apply p-1;
+    @apply p-1 cursor-pointer;
 
     transition: all 333ms;
 }
