@@ -67,20 +67,20 @@ export default {
 
 <style scoped>
 .search-bar {
-    @apply flex items-center w-full relative max-w-4xl px-1 py-1 border-black border-2 rounded-full;
+    @apply flex items-center w-full relative max-w-4xl px-3 py-1 border-black border-2 rounded-full;
 }
 
 .search-bar__icon__container {
-    @apply flex justify-center items-center absolute w-full h-full z-20;
+    @apply flex justify-center items-center absolute inset-x-0 w-full h-full z-20;
 }
 
 .search-bar__icon {
-    @apply p-1 cursor-pointer;
+    @apply flex justify-center items-center py-1 px-2 cursor-pointer;
 
     transition: all 333ms;
 }
 
 .search-bar__input {
-    @apply ml-8;
+    @apply ml-6;
 }
 </style>

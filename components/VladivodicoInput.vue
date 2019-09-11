@@ -88,7 +88,7 @@ export default {
 
 <style scoped>
 .vladivodico__input__container {
-    @apply flex items-center flex-grow relative border-b-2 opacity-0 border-transparent mx-2 my-1;
+    @apply flex items-center flex-grow relative border-b-2 opacity-0 border-transparent;
 
     transition: all 500ms;
     transform: translateY(25%);
