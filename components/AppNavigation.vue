@@ -4,9 +4,11 @@
 
         <app-title :word="word" :page="page" />
 
-        <transition name="fade" appear>
-            <app-add-word v-if="$nuxt.$route.name === 'index'" key="add-word" />
-        </transition>
+        <no-ssr>
+            <transition name="fade">
+                <app-add-word v-if="page === 'index'" key="add-word" />
+            </transition>
+        </no-ssr>
     </nav>
 </template>
 
