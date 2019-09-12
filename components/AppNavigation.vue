@@ -4,7 +4,9 @@
 
         <app-title :word="word" :page="page" />
 
-        <app-add-word />
+        <transition name="fade">
+            <app-add-word v-if="page === 'index'" key="add-word" />
+        </transition>
     </nav>
 </template>
 
@@ -35,7 +37,10 @@ export default {
 
 <style scoped>
 .app-navigation__header {
-    @apply flex flex-no-wrap border-black border-solid border-b px-1 py-1;
+    @apply border-black border-solid border-b px-1 py-1;
+
+    display: grid;
+    grid-template-columns: 48px auto 48px;
 
     @screen sm {
         @apply px-4;
