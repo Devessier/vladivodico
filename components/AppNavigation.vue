@@ -4,11 +4,11 @@
 
         <app-title :word="word" :page="page" />
 
-        <no-ssr>
+        <client-only>
             <transition name="fade">
                 <app-add-word v-if="page === 'index'" key="add-word" />
             </transition>
-        </no-ssr>
+        </client-only>
     </nav>
 </template>
 
