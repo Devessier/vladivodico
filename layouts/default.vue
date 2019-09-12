@@ -25,6 +25,20 @@ button,
 input {
     outline: none;
 }
+
+.fade-enter-active,
+.fade-leave-active {
+    transition: all 300ms;
+}
+
+.fade-enter-to {
+    @apply opacity-100;
+}
+
+.fade-enter,
+.fade-leave-to {
+    @apply opacity-0;
+}
 </style>
 
 <style scoped>
