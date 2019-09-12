@@ -20,6 +20,13 @@ export default {
 }
 </script>
 
+<style>
+button,
+input {
+    outline: none;
+}
+</style>
+
 <style scoped>
 section {
     @apply flex flex-col min-h-screen relative;
@@ -27,9 +34,10 @@ section {
 
 main {
     @apply relative flex-1 overflow-x-hidden;
+}
 
-    display: grid;
-    grid-template: 'main';
+main > article {
+    @apply absolute h-full;
 }
 
 main > article {
