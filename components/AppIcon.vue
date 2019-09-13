@@ -1,11 +1,23 @@
 <template>
     <aside :class="[page]">
-        <vladivodico-btn to="/" class="home">
-            <book-open-icon />
-        </vladivodico-btn>
-        <vladivodico-btn to="/" class="back">
-            <chevron-left-icon />
-        </vladivodico-btn>
+        <transition name="fade" mode="out-in">
+            <vladivodico-btn
+                v-if="page === 'index'"
+                key="home"
+                to="/"
+                class="home"
+            >
+                <book-open-icon />
+            </vladivodico-btn>
+            <vladivodico-btn
+                v-else-if="page === 'definition'"
+                key="back"
+                to="/"
+                class="back"
+            >
+                <chevron-left-icon />
+            </vladivodico-btn>
+        </transition>
     </aside>
 </template>
 
@@ -34,19 +46,7 @@ aside {
     @apply flex justify-center items-center w-12 relative;
 }
 
-.home,
-.back {
-    @apply flex justify-center items-center p-1 border-black border-2 rounded-full opacity-100 absolute;
-    transition: all 500ms;
-}
-
-aside.definition .home {
-    opacity: 0;
-    transform: scale(0.9);
-}
-
-aside.index .back {
-    opacity: 0;
-    transform: translateX(-10px);
+aside > * {
+    transition-duration: 200ms;
 }
 </style>
