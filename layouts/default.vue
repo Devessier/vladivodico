@@ -28,11 +28,7 @@ input {
 
 .fade-enter-active,
 .fade-leave-active {
-    transition: all 300ms;
-}
-
-.fade-enter-to {
-    @apply opacity-100;
+    transition: all 300ms ease;
 }
 
 .fade-enter,

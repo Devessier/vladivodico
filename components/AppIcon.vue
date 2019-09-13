@@ -1,19 +1,13 @@
 <template>
     <aside :class="[page]">
         <transition name="fade" mode="out-in">
-            <vladivodico-btn
-                v-if="page === 'index'"
-                key="home"
-                to="/"
-                class="home"
-            >
+            <vladivodico-btn v-if="page === 'index'" key="home" to="/">
                 <book-open-icon />
             </vladivodico-btn>
             <vladivodico-btn
                 v-else-if="page === 'definition'"
                 key="back"
                 to="/"
-                class="back"
             >
                 <chevron-left-icon />
             </vladivodico-btn>
@@ -44,9 +38,5 @@ export default {
 <style scoped>
 aside {
     @apply flex justify-center items-center w-12 relative;
-}
-
-aside > * {
-    transition-duration: 200ms;
 }
 </style>
