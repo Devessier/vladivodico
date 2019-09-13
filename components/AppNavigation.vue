@@ -4,11 +4,9 @@
 
         <app-title :word="word" :page="page" />
 
-        <client-only>
-            <transition name="fade">
-                <app-add-word v-if="page === 'index'" key="add-word" />
-            </transition>
-        </client-only>
+        <transition name="fade">
+            <app-add-word v-if="page === 'index'" key="add-word" />
+        </transition>
     </nav>
 </template>
 
