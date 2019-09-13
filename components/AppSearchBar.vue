@@ -81,6 +81,15 @@ export default {
 }
 
 .search-bar__input {
-    @apply ml-6;
+    @apply ml-6 opacity-0 border-transparent;
+
+    transition: all 500ms;
+    transform: translateY(25%);
+}
+
+.search-bar__input.input-focus {
+    @apply border-black opacity-100 z-30;
+
+    transform: translateY(0);
 }
 </style>
