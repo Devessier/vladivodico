@@ -21,6 +21,10 @@ export default {
 </script>
 
 <style>
+html {
+    font-family: 'Titillium Web', sans-serif;
+}
+
 button,
 input {
     outline: none;

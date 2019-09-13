@@ -2,17 +2,21 @@
     <header :class="[page]">
         <app-search-bar class="app-title__search-bar" />
 
-        <h2 class="app-title__word">{{ word }}</h2>
+        <div class="app-title__word">
+            <vladivodico-input :value="word" class="app-title__word__input" />
+        </div>
     </header>
 </template>
 
 <script>
 import AppSearchBar from './AppSearchBar.vue'
+import VladivodicoInput from './VladivodicoInput.vue'
 
 export default {
     name: 'AppTitle',
     components: {
-        AppSearchBar
+        AppSearchBar,
+        VladivodicoInput
     },
     props: {
         word: {
@@ -27,9 +31,15 @@ export default {
 }
 </script>
 
+<style>
+.app-title__word__input > input {
+    @apply text-center font-semibold;
+}
+</style>
+
 <style scoped>
 header {
-    @apply flex flex-grow justify-center items-center;
+    @apply flex flex-grow justify-center items-center h-full relative;
 }
 
 header > * {
@@ -56,13 +66,17 @@ header.definition > .app-title__search-bar {
 }
 
 .app-title__word {
-    @apply opacity-0;
+    @apply flex items-center justify-center h-full opacity-0 text-xl;
+}
+
+.app-title__word__input {
+    @apply border-0;
 }
 
 header.index > .app-title__word {
     @apply opacity-0;
 
-    transform: translateY(-75%) rotate3d(1, 0, 0, 60deg);
+    transform: translateY(-50%) rotate3d(1, 0, 0, 90deg);
 }
 
 header.definition > .app-title__word {
