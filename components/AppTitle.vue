@@ -3,7 +3,11 @@
         <app-search-bar class="app-title__search-bar" />
 
         <div class="app-title__word">
-            <vladivodico-input :value="word" class="app-title__word__input" />
+            <vladivodico-input
+                :value="word"
+                no-border
+                class="app-title__word__input"
+            />
         </div>
     </header>
 </template>
@@ -67,10 +71,6 @@ header.definition > .app-title__search-bar {
 
 .app-title__word {
     @apply flex items-center justify-center h-full opacity-0 text-xl;
-}
-
-.app-title__word__input {
-    @apply border-0;
 }
 
 header.index > .app-title__word {

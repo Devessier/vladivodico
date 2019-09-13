@@ -44,6 +44,10 @@ export default {
         closable: {
             type: Boolean,
             default: false
+        },
+        noBorder: {
+            type: Boolean,
+            default: false
         }
     },
     data() {
@@ -54,10 +58,10 @@ export default {
     },
     computed: {
         containerClasses() {
-            if (this.isFocused === true) {
-                return 'input-focus'
+            return {
+                'input-focus': this.isFocused === true,
+                'border-none': this.noBorder
             }
-            return ''
         },
         listeners() {
             return Object.entries(this.$listeners)
