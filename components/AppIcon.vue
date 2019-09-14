@@ -4,11 +4,7 @@
             <vladivodico-btn v-if="page === 'index'" key="home" to="/">
                 <book-open-icon />
             </vladivodico-btn>
-            <vladivodico-btn
-                v-else-if="page === 'definition'"
-                key="back"
-                to="/"
-            >
+            <vladivodico-btn v-else key="back" to="/">
                 <chevron-left-icon />
             </vladivodico-btn>
         </transition>

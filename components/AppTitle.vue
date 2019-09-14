@@ -1,18 +1,22 @@
 <template>
-    <header :class="[page]">
+    <header :class="headerClasses">
         <app-search-bar class="app-title__search-bar" />
 
         <div class="app-title__word">
             <vladivodico-input
-                :value="word"
+                :value="wordTitle"
                 no-border
                 class="app-title__word__input"
+                @input="input"
+                @blur="blur"
             />
         </div>
     </header>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 import AppSearchBar from './AppSearchBar.vue'
 import VladivodicoInput from './VladivodicoInput.vue'
 
@@ -30,6 +34,28 @@ export default {
         page: {
             type: String,
             default: ''
+        }
+    },
+    computed: {
+        headerClasses() {
+            if (this.page === 'index') return 'index'
+            return 'word'
+        },
+        ...mapGetters(['wordTitle'])
+    },
+    methods: {
+        input(value) {
+            this.$store.dispatch('modifyWordTitle', value)
+        },
+        async blur() {
+            if (this.$store.state.isWritingNewWord !== true) return
+
+            const id = await this.$store.dispatch('appendNewWord')
+
+            this.$nuxt.$router.replace({
+                name: 'word-id',
+                params: { id }
+            })
         }
     }
 }
@@ -63,7 +89,7 @@ header.index > .app-title__search-bar {
     transition-delay: 100ms;
 }
 
-header.definition > .app-title__search-bar {
+header.word > .app-title__search-bar {
     @apply opacity-0;
 
     transform: scale(0.9);
@@ -79,7 +105,7 @@ header.index > .app-title__word {
     transform: translateY(-50%) rotate3d(1, 0, 0, 90deg);
 }
 
-header.definition > .app-title__word {
+header.word > .app-title__word {
     @apply opacity-100;
 
     transition-delay: 200ms;

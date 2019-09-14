@@ -1,10 +1,15 @@
 <template>
-    <article>definition</article>
+    <article>index</article>
 </template>
 
 <script>
 export default {
-    name: 'Definition'
+    name: 'WordId',
+    transition(to, from) {
+        if (to && from && (to.name === 'word-add' || from.name === 'word-add'))
+            return 'none'
+        return 'page'
+    }
 }
 </script>
 

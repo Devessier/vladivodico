@@ -1,6 +1,6 @@
 <template>
     <aside>
-        <vladivodico-btn to="/definition">
+        <vladivodico-btn to="/word/add">
             <plus-icon />
         </vladivodico-btn>
     </aside>
