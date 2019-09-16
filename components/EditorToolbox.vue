@@ -1,18 +1,35 @@
 <template>
     <editor-menu-bar :editor="editor" #default="{ commands, isActive }">
-        <aside class="editor__toolbox">
-            <editor-toolbox-btn
-                v-for="(button, i) in buttons"
-                :key="i"
-                v-bind="button"
-                :commands="commands"
-                :is-active="isActive"
-            />
+        <div>
+            <transition name="slide">
+                <aside
+                    v-if="showToolbox === true"
+                    key="toolbox"
+                    class="editor__toolbox"
+                >
+                    <editor-toolbox-btn
+                        v-for="(button, i) in buttons"
+                        :key="i"
+                        v-bind="button"
+                        :commands="commands"
+                        :is-active="isActive"
+                    />
 
-            <button class="editor__toolbox__button dismiss-button">
-                <x-icon />
-            </button>
-        </aside>
+                    <button
+                        class="editor__toolbox__button dismiss-button"
+                        @click="toggle"
+                    >
+                        <x-icon />
+                    </button>
+                </aside>
+
+                <editor-toolbox-floating-btn
+                    v-else
+                    key="open"
+                    @click.native="toggle"
+                />
+            </transition>
+        </div>
     </editor-menu-bar>
 </template>
 
@@ -28,7 +45,9 @@ import {
     ListIcon,
     HashIcon
 } from 'vue-feather-icons'
+
 import EditorToolboxBtn from '@/components/EditorToolboxBtn.vue'
+import EditorToolboxFloatingBtn from '@/components/EditorToolboxFloatingBtn.vue'
 
 export default {
     name: 'EditorToolbox',
@@ -40,7 +59,8 @@ export default {
         ItalicIcon,
         UnderlineIcon,
         ListIcon,
-        HashIcon
+        HashIcon,
+        EditorToolboxFloatingBtn
     },
     props: {
         editor: {
@@ -52,6 +72,7 @@ export default {
     },
     data() {
         return {
+            showToolbox: true,
             buttons: [
                 {
                     action: 'bold',
@@ -75,11 +96,26 @@ export default {
                 }
             ]
         }
+    },
+    methods: {
+        toggle() {
+            this.showToolbox = !this.showToolbox
+        }
     }
 }
 </script>
 
 <style scoped>
+.slide-enter-active,
+.slide-leave-active {
+    transition: all 500ms;
+}
+
+.slide-enter,
+.slide-leave-to {
+    transform: translateY(100%);
+}
+
 aside.editor__toolbox {
     @apply w-full bottom-0 border-black border-t py-1 bg-orange-200 z-10 h-12;
 
@@ -105,5 +141,12 @@ button.dismiss-button {
     @screen md {
         @apply hidden;
     }
+}
+
+aside.floating_button {
+    @apply fixed;
+
+    bottom: 10px;
+    right: 10px;
 }
 </style>

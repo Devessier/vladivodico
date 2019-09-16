@@ -47,7 +47,7 @@ section.app__container {
 }
 
 main {
-    @apply relative flex-1 overflow-x-hidden;
+    @apply relative flex-1 overflow-hidden;
 }
 
 main > * {
