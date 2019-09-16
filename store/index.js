@@ -5,17 +5,19 @@ export const state = () => ({
     newWordTitle: '',
 
     words: [],
-    currentlyWatchedWordIndex: -1
+    currentlyWatchedWordId: -1
 })
 
 export const getters = {
-    wordTitle(state, index) {
+    word: (state) => {
+        return state.words.find(
+            ({ id: wordId }) => wordId === state.currentlyWatchedWordId
+        )
+    },
+    wordTitle: (state, getters) => {
         if (state.isWritingNewWord) return state.newWordTitle
 
-        const word = state.words[index]
-
-        if (word === undefined) return ''
-        return word.title
+        return (getters.word && getters.word.title) || undefined
     }
 }
 
@@ -26,14 +28,14 @@ export const mutations = {
     setNewWordTitle(state, value) {
         state.newWordTitle = value
     },
-    setWordTitle(state, value) {
-        const index = state.currentlyWatchedWordIndex
+    setWordTitle(state, { id, value }) {
+        const word = state.words.find(({ id: wordId }) => wordId === id)
 
-        if (state.words[index] === undefined) return
-        state.words[index] = value
+        if (word === undefined) return
+        word.title = value
     },
-    setCurrentlyWatchedWordIndex(state, index) {
-        state.currentlyWatchedWordIndex = index
+    setCurrentlyWatchedWordId(state, id) {
+        state.currentlyWatchedWordId = id
     },
     pushNewWord(state, payload) {
         state.words.push(payload)
@@ -65,5 +67,8 @@ export const actions = {
         commit('setNewWordTitle', '')
 
         return id
+    },
+    watchWord({ commit }, id) {
+        commit('setCurrentlyWatchedWordId', id)
     }
 }

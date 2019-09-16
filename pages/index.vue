@@ -1,8 +1,30 @@
 <template>
-    <article>index</article>
+    <article>
+        <section class="words__container absolute">
+            <words-collection-item
+                v-for="(word, i) in words"
+                :key="i"
+                v-bind="word"
+            />
+        </section>
+    </article>
 </template>
 
-<script></script>
+<script>
+import WordsCollectionItem from '@/components/WordsCollectionItem.vue'
+
+export default {
+    name: 'Index',
+    components: {
+        WordsCollectionItem
+    },
+    computed: {
+        words() {
+            return this.$store.state.words
+        }
+    }
+}
+</script>
 
 <style scoped>
 .page-leave-active,
@@ -18,5 +40,23 @@
 
 .page-leave-active {
     animation-name: leaveToLeft;
+}
+
+section.words__container {
+    @apply w-full;
+
+    display: grid;
+    grid-auto-rows: 1fr;
+
+    @screen md {
+        @apply p-5;
+
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px 10px;
+    }
+
+    @screen lg {
+        grid-template-columns: repeat(5, 1fr);
+    }
 }
 </style>

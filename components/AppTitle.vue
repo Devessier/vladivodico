@@ -5,6 +5,7 @@
         <div class="app-title__word">
             <vladivodico-input
                 :value="wordTitle"
+                placeholder="Nouveau mot …"
                 no-border
                 class="app-title__word__input"
                 @input="input"

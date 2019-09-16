@@ -100,7 +100,7 @@ input.vladivodico__input {
 }
 
 input.vladivodico__input::placeholder {
-    @apply text-black;
+    @apply text-gray-700;
 }
 
 .vladivodico__input__close__icon {

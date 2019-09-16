@@ -36,7 +36,7 @@ export default {
 </script>
 
 <style scoped>
-.app-navigation__header {
+nav.app-navigation__header {
     @apply border-black border-solid border-b px-1 py-1;
 
     display: grid;

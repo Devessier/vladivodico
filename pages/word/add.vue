@@ -1,5 +1,7 @@
 <template>
-    <article>add</article>
+    <article>
+        <h2>📖 Ajout d'un nouveau terme 📖</h2>
+    </article>
 </template>
 
 <script>
@@ -12,8 +14,14 @@ export default {
     },
     transition(to, from) {
         if (to && from && (to.name === 'word-id' || from.name === 'word-id'))
-            return 'none'
-        return 'page'
+            return {
+                name: 'none',
+                mode: ''
+            }
+        return {
+            name: 'page',
+            mode: ''
+        }
     }
 }
 </script>
@@ -32,5 +40,9 @@ export default {
 
 .page-leave-active {
     animation-name: leaveToRight;
+}
+
+article {
+    @apply flex justify-center items-center text-lg;
 }
 </style>

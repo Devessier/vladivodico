@@ -1,8 +1,6 @@
 <template>
-    <section>
-        <nav>
-            <app-navigation />
-        </nav>
+    <section class="app__container">
+        <app-navigation />
 
         <main>
             <nuxt />
@@ -14,6 +12,7 @@
 import AppNavigation from '~/components/AppNavigation.vue'
 
 export default {
+    name: 'DefaultLayout',
     components: {
         AppNavigation
     }
@@ -26,7 +25,8 @@ html {
 }
 
 button,
-input {
+input,
+div {
     outline: none;
 }
 
@@ -42,7 +42,7 @@ input {
 </style>
 
 <style scoped>
-section {
+section.app__container {
     @apply flex flex-col min-h-screen relative;
 }
 
@@ -50,12 +50,8 @@ main {
     @apply relative flex-1 overflow-x-hidden;
 }
 
-main > article {
-    @apply absolute h-full;
-}
-
-main > article {
-    @apply flex w-full bg-orange-200;
+main > * {
+    @apply flex absolute h-full w-full bg-orange-200;
 
     grid-area: main;
 }
