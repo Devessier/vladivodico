@@ -24,6 +24,10 @@ html {
     font-family: 'Titillium Web', sans-serif;
 }
 
+body {
+    @apply h-screen;
+}
+
 button,
 input,
 div {
