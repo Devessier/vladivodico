@@ -18,7 +18,9 @@ export const getters = {
         if (state.isWritingNewWord) return state.newWordTitle
 
         return (getters.word && getters.word.title) || undefined
-    }
+    },
+    hasWord: (state) => (id) =>
+        state.words.some(({ id: wordId }) => wordId === id)
 }
 
 export const mutations = {

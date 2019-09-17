@@ -38,6 +38,9 @@ export default {
         EditorContent,
         EditorToolbox
     },
+    validate({ params: { id }, store }) {
+        return store.getters.hasWord(id)
+    },
     data() {
         return {
             editor: new Editor({
