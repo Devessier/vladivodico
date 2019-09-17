@@ -16,6 +16,14 @@ module.exports = {
                 hid: 'description',
                 name: 'description',
                 content: process.env.npm_package_description || ''
+            },
+            {
+                name: 'apple-mobile-web-app-capable',
+                content: 'yes'
+            },
+            {
+                name: 'apple-mobile-web-app-status-bar-style',
+                content: 'black-translucent'
             }
         ],
         link: [
