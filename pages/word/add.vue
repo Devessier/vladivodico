@@ -1,7 +1,7 @@
 <template>
-    <article>
+    <section>
         <h2>📖 Ajout d'un nouveau terme 📖</h2>
-    </article>
+    </section>
 </template>
 
 <script>
@@ -35,14 +35,18 @@ export default {
 }
 
 .page-enter-active {
+    @apply z-10;
+
     animation-name: enterFromRight;
 }
 
 .page-leave-active {
+    @apply z-10;
+
     animation-name: leaveToRight;
 }
 
-article {
+section {
     @apply flex justify-center items-center text-lg;
 }
 </style>

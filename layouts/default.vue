@@ -2,7 +2,7 @@
     <section class="app__container">
         <app-navigation />
 
-        <main>
+        <main class="vladivodico-app__container">
             <nuxt />
         </main>
     </section>
@@ -24,6 +24,15 @@ html {
     font-family: 'Titillium Web', sans-serif;
 }
 
+body {
+    @apply h-full bg-orange-200;
+}
+
+a,
+a:visited {
+    color: black;
+}
+
 button,
 input,
 div {
@@ -39,43 +48,15 @@ div {
 .fade-leave-to {
     @apply opacity-0;
 }
-</style>
 
-<style scoped>
-section.app__container {
-    @apply flex flex-col absolute inset-0;
-
-    padding: env(safe-area-inset-top) env(safe-area-inset-right) 0
-        env(safe-area-inset-left);
-}
-
-main {
-    @apply relative flex-1 overflow-hidden;
-}
-
-main > * {
-    @apply flex absolute h-full w-full bg-orange-200;
+main.vladivodico-app__container > * {
+    @apply flex relative w-screen bg-orange-200;
 
     grid-area: main;
 }
 
-main:first-child {
+main.vladivodico-app__container > :first-child {
     z-index: 1;
-}
-
-main:nth-child(2) {
-    z-index: 2;
-}
-</style>
-
-<style>
-body {
-    @apply h-full bg-orange-200;
-}
-
-a,
-a:visited {
-    color: black;
 }
 
 @keyframes leaveToLeft {
@@ -114,5 +95,22 @@ a:visited {
     to {
         transform: translateX(0);
     }
+}
+</style>
+
+<style scoped>
+section.app__container {
+    @apply flex flex-col absolute inset-0 max-h-screen;
+
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) 0
+        env(safe-area-inset-left);
+}
+
+main {
+    @apply relative flex-1 overflow-x-hidden;
+
+    display: grid;
+    grid-template: 'main';
+    height: calc(100% - 3.5rem);
 }
 </style>

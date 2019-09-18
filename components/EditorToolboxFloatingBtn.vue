@@ -1,9 +1,7 @@
 <template>
-    <aside class="floating-button">
-        <button>
-            <edit2-icon />
-        </button>
-    </aside>
+    <button class="floating-button">
+        <edit2-icon />
+    </button>
 </template>
 
 <script>
@@ -19,7 +17,7 @@ export default {
 
 <style scoped>
 .floating-button {
-    @apply fixed flex justify-center items-center w-12 h-12 text-white bg-gray-500 rounded-full cursor-pointer;
+    @apply fixed flex justify-center items-center w-12 h-12 text-white bg-gray-500 rounded-full cursor-pointer z-30;
 
     bottom: 0.5rem;
     right: 0.5rem;

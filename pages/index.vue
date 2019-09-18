@@ -1,13 +1,11 @@
 <template>
-    <article>
-        <section class="words__container">
-            <words-collection-item
-                v-for="(word, i) in words"
-                :key="i"
-                v-bind="word"
-            />
-        </section>
-    </article>
+    <section class="words__container">
+        <words-collection-item
+            v-for="(word, i) in words"
+            :key="i"
+            v-bind="word"
+        />
+    </section>
 </template>
 
 <script>
@@ -35,10 +33,14 @@ export default {
 }
 
 .page-enter-active {
+    @apply z-0;
+
     animation-name: enterFromLeft;
 }
 
 .page-leave-active {
+    @apply z-0;
+
     animation-name: leaveToLeft;
 }
 

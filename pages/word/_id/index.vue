@@ -97,16 +97,18 @@ export default {
 }
 
 .page-enter-active {
+    @apply z-10;
+
     animation-name: enterFromRight;
 }
 
 .page-leave-active {
+    @apply z-10;
+
     animation-name: leaveToRight;
 }
 
 section.editor {
-    @apply w-full;
-
     display: grid;
     grid-template-columns: repeat(4, 1fr);
 }
@@ -124,12 +126,10 @@ article.editor__container {
 }
 
 .editor__content {
-    @apply px-4 py-2 h-full overflow-y-scroll;
-
-    max-height: calc(100% - 3.5rem);
+    @apply px-4 py-2 h-full w-full overflow-y-scroll;
 
     @screen md {
-        @apply mb-0 border border-t-0 border-black;
+        @apply mb-0 border-l border-r border-black;
     }
 }
 
