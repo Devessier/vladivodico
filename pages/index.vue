@@ -1,6 +1,6 @@
 <template>
     <article>
-        <section class="words__container absolute">
+        <section class="words__container">
             <words-collection-item
                 v-for="(word, i) in words"
                 :key="i"
@@ -43,7 +43,7 @@ export default {
 }
 
 section.words__container {
-    @apply w-full;
+    @apply w-full overflow-y-scroll;
 
     display: grid;
     grid-auto-rows: 1fr;
