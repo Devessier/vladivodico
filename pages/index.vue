@@ -46,8 +46,7 @@ section.words__container {
     @apply w-full overflow-y-scroll;
 
     display: grid;
-    grid-auto-rows: 1fr;
-    grid-template-rows: 5rem;
+    grid-auto-rows: 5rem;
 
     @screen md {
         @apply p-5;
