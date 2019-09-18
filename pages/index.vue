@@ -47,6 +47,7 @@ section.words__container {
 
     display: grid;
     grid-auto-rows: 1fr;
+    grid-template-rows: 5rem;
 
     @screen md {
         @apply p-5;
