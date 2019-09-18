@@ -43,6 +43,8 @@ nav.app-navigation__header {
     grid-template-columns: 48px auto 48px;
     grid-template-rows: 100%;
 
+    height: 3.5rem;
+
     @screen sm {
         @apply px-4;
     }

@@ -56,7 +56,7 @@ main.vladivodico-app__container > * {
 }
 
 main.vladivodico-app__container > :first-child {
-    z-index: 1;
+    @apply z-10;
 }
 
 @keyframes leaveToLeft {
