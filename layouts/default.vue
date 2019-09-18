@@ -24,11 +24,6 @@ html {
     font-family: 'Titillium Web', sans-serif;
 }
 
-body {
-    padding: env(safe-area-inset-top) env(safe-area-inset-right)
-        env(safe-area-inset-bottom) env(safe-area-inset-left);
-}
-
 button,
 input,
 div {
@@ -48,11 +43,10 @@ div {
 
 <style scoped>
 section.app__container {
-    @apply flex flex-col relative;
+    @apply flex flex-col absolute inset-0;
 
-    min-height: calc(
-        100vh - env(safe-area-inset-top) - env(safe-area-inset-bottom)
-    );
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) 0
+        env(safe-area-inset-left);
 }
 
 main {
