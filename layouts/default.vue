@@ -48,7 +48,11 @@ div {
 
 <style scoped>
 section.app__container {
-    @apply flex flex-col min-h-screen relative;
+    @apply flex flex-col relative;
+
+    min-height: calc(
+        100vh - env(safe-area-inset-top) - env(safe-area-inset-bottom)
+    );
 }
 
 main {
