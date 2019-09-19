@@ -29,6 +29,7 @@
     "@nuxtjs/hapi": "^2.2.1",
     "@nuxtjs/pwa": "^3.0.0-beta.19",
     "cross-env": "^5.2.1",
+    "dexie": "^2.0.4",
     "nanoid": "^2.1.1",
     "nuxt": "^2.9.2",
     "tiptap": "^1.25.0",

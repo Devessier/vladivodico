@@ -17,8 +17,8 @@
             :placeholder="placeholder"
             closable
             class="search-bar__input"
-            @focus="flipOn"
-            @blur="flipOff"
+            @focus="focus"
+            @blur="blur"
             @keyup.enter="search"
         />
     </div>
@@ -48,7 +48,22 @@ export default {
             }
         }
     },
+    watch: {
+        searchText(query) {
+            this.$store.dispatch('modifySearchQuery', query)
+        }
+    },
     methods: {
+        focus() {
+            this.$store.dispatch('toggleSearch', true)
+
+            this.flipOn()
+        },
+        blur() {
+            this.$store.dispatch('toggleSearch', false)
+
+            this.flipOff()
+        },
         flipOn() {
             const containerElementDims = this.$refs.searchBarContainer.getBoundingClientRect()
             const searchIconElementDims = this.$refs.searchIcon.getBoundingClientRect()

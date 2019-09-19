@@ -38,12 +38,10 @@ export default {
         EditorContent,
         EditorToolbox
     },
-    validate({ params: { id }, store }) {
-        return store.getters.hasWord(id)
-    },
     data() {
         return {
             editor: new Editor({
+                content: this.$store.getters.word.definition,
                 extensions: [
                     new Blockquote(),
                     new BulletList(),
@@ -62,9 +60,22 @@ export default {
                     new Strike(),
                     new Underline(),
                     new History()
-                ]
+                ],
+                onUpdate: ({ getJSON }) => {
+                    const definition = getJSON()
+
+                    this.$store.dispatch(
+                        'updateCurrentlySelectedWordDefinition',
+                        definition
+                    )
+                }
             })
         }
+    },
+    fetch({ params: { id }, store }) {
+        store.dispatch('watchWord', id)
+
+        return store.dispatch('initClientStorage')
     },
     transition(to, from) {
         if (to && from && (to.name === 'word-add' || from.name === 'word-add'))
@@ -76,11 +87,6 @@ export default {
             name: 'page',
             mode: ''
         }
-    },
-    beforeRouteEnter(to, from, next) {
-        next((vm) => {
-            vm.$store.dispatch('watchWord', to.params.id)
-        })
     },
     beforeDestroy() {
         this.editor.destroy()

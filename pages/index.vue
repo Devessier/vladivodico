@@ -18,8 +18,14 @@ export default {
     },
     computed: {
         words() {
-            return this.$store.state.words
+            if (this.$store.state.searchActive)
+                return this.$store.getters.searchResults
+
+            return this.$store.getters.sortedWords
         }
+    },
+    fetch({ store }) {
+        return store.dispatch('initClientStorage')
     }
 }
 </script>
@@ -48,7 +54,7 @@ section.words__container {
     @apply w-full overflow-y-scroll;
 
     display: grid;
-    grid-auto-rows: 5rem;
+    grid-auto-rows: 3.5rem;
 
     @screen md {
         @apply p-5;
